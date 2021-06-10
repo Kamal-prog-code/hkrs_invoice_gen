@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HKRS</title>
+	<!-- Latest compiled and minified bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/d0d12d717f.js" crossorigin="anonymous"></script>
+	<style>
+		body{
+			background: url(/Static/imgs/contact.jpg);
+			background-size: 100%;
+		}
+
+		.card{
+			background-color: #fff;
+			padding: 50px 50px 50px 50px;
+			margin:50px;
+		}
+		input{
+				margin-bottom: 15px;
+				padding:10px;
+				width:100%;
+				box-sizing: border-box;
+				border-radius: 5px;
+				height:40px;
+				font-size: 11pt;
+			}
+		button	
+		{
+			width: 155px;
+			padding: 12px 10px;
+			outline: none;
+			border: 0;
+			background: linear-gradient(to right,rgb(186, 209, 252),rgb(116, 162, 247));
+			cursor: pointer;
+			border-radius:6px;
+			transition: width 0.5s;
+		}
+		button i{
+			width: 30px;
+			visibility: hidden;
+		}
+		button:hover i{
+			visibility:visible;
+		}
+		button:hover{
+			width: max-content;
+			align-items: center;
+		}
+
+		@media only screen and (max-width:700px) {
+			body{
+				background-size: 145%;
+			}
+		}
+		@media only screen and (max-width:1000px) {
+			body{
+				background-size: 200%;
+			}
+		}
+	</style>
+</head>
+
+<body  >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10" style="margin-left: 10%;">
+				<div class="col text-center">
+					<h1 class="card" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 106, 37));">HKRS</h1>
+				</div>
+				<div class="card card-body">
+					 <div class="text-center"> 
+					<h3>Create Invoices (HKRS NET Communications)</h3>
+					<form name="Kform" class="text-start">
+						<label>First Name</label>
+						<input type="text" placeholder="Enter your first name"><br>
+						<label>Last Name</label>
+						<input type="text" placeholder="Enter your last name"><br>
+						<label>Email</label>
+						<input type="text" placeholder="Enter your email id" id="emailid"><br>
+						<label>Password</label>
+						<input type="password" placeholder="********" id="pass"><br>
+						<span id="valpass" style="color: red;"></span>
+						<label>Friendly Id</label>
+						<p style="font-weight: lighter;font-size: smaller;">&#63 This field allows ostar Users to find you easily. It is always public</p>
+						<input type="text" placeholder="Enter Friendly Id"><br>
+						<button>Create Invoice<i class="fas fa-arrow-right"></i></button>
+					</form>
+					<!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a>
+					<a class="btn btn-info"  href="{% url 'pdf_download' %}">Download Invoice</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+
+
+
+
