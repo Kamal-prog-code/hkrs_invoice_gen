@@ -53,9 +53,9 @@ class Formdata(APIView):
 	def post(self, request):
 		try:
 			data = request.data
-			data["Invoice_date"] = datetime.strptime(data["Invoice_date"],"%d-%m-%Y")
-			data["Due_date"] = datetime.strptime(data["Due_date"],"%d-%m-%Y")
-			data["Paid_date"] = datetime.strptime(data["Paid_date"],"%d-%m-%Y")
+			data["Invoice_date"] = datetime.strptime(data["Invoice_date"],"%Y-%m-%d")
+			data["Due_date"] = datetime.strptime(data["Due_date"],"%Y-%m-%d")
+			data["Paid_date"] = datetime.strptime(data["Paid_date"],"%Y-%m-%d")
 			serializer = FormDSerializer(data=data)
 			f_objs =FormD.objects.all()
 			if serializer.is_valid(raise_exception=True):
