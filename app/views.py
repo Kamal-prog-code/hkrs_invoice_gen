@@ -24,6 +24,14 @@ class Formdata(APIView):
 		try:
 			data = request.data
 			serializer = FormDSerializer(data=data)
+			b_objs =BillNo.objects.all()
+			if b_objs.count():
+				b_obj=b_objs.first()
+				bn=b_obj.Bill_no
+				b_obj.delete()
+				BillNo.objects.create(Bill_no=int(bn)+1)
+			else:	
+				BillNo.objects.create(Bill_no=155110)
 			if serializer.is_valid(raise_exception=True):
 				return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 		except Exception as e:

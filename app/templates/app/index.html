@@ -12,13 +12,13 @@
 	<style>
 		body{
 			background: url(/Static/imgs/contact.jpg);
-			background-size: 100%;
+			background-size: 120%;
 		}
 
 		.card{
 			background-color: #fff;
 			padding: 50px 50px 50px 50px;
-			margin:50px;
+			/* margin:50px; */
 		}
 		input{
 				margin-bottom: 15px;
@@ -54,12 +54,12 @@
 
 		@media only screen and (max-width:700px) {
 			body{
-				background-size: 145%;
+				background-size: 300%;
 			}
 		}
 		@media only screen and (max-width:1000px) {
 			body{
-				background-size: 200%;
+				background-size: 300%;
 			}
 		}
 	</style>
@@ -68,31 +68,52 @@
 <body  >
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10" style="margin-left: 10%;">
-				<div class="col text-center">
-					<h1 class="card" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 106, 37));">HKRS</h1>
-				</div>
-				<div class="card card-body">
-					 <div class="text-center"> 
+			<div class="col-md-10" style="margin-left: 10%;margin-top: 5%;margin-bottom: 5%;">
+				<h1 class="card text-center" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 88, 37));">HKRS</h1>
+				<div class="card text-center">
 					<h3>Create Invoices (HKRS NET Communications)</h3>
 					<form name="Kform" class="text-start">
-						<label>First Name</label>
-						<input type="text" placeholder="Enter your first name"><br>
-						<label>Last Name</label>
-						<input type="text" placeholder="Enter your last name"><br>
-						<label>Email</label>
-						<input type="text" placeholder="Enter your email id" id="emailid"><br>
-						<label>Password</label>
-						<input type="password" placeholder="********" id="pass"><br>
-						<span id="valpass" style="color: red;"></span>
-						<label>Friendly Id</label>
-						<p style="font-weight: lighter;font-size: smaller;">&#63 This field allows ostar Users to find you easily. It is always public</p>
-						<input type="text" placeholder="Enter Friendly Id"><br>
+						<label>Customer Name</label>
+						<input type="text" placeholder="Enter your Customer name"><br>
+						<label>Address</label>
+						<input type="text" placeholder="Enter Address"><br>
+						<label>Plan Description</label>
+						<input type="text" placeholder="Select your Plan"><br>
+						<label>Invoice Date</label>
+						<input type="date" id="" name="">
+						<label>Due Date</label>
+						<input type="date" id="" name="">
+						<!-- <input type="text" placeholder="Enter the Cost"><br> -->
+						<label for="cost">Plan Cost:</label>
+						<select name="" id="">
+							<option value="499">Rs.499/-</option>
+							<option value="599">Rs.599/-</option>
+							<option value="1299">Rs.1299/-</option>
+							<option value="699">Rs.699/-</option>
+						</select>
+						<label for="quantity" style="margin-left: 5%;">Quantity</label>
+						<select name="" id="">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						</select>
+						<label style="margin-left: 5%;">Payment Mode</label>
+						<select name="" id="">
+							<option value="Cash">Cash</option>
+							<option value="Online">Online</option>
+						</select><br><br>
+						<label>Paid Date</label>
+						<input type="date" id="" name="">
+						<label>Paid Amount</label>
+						<input type="text" placeholder="Total Paid Amt"><br>
 						<button>Create Invoice<i class="fas fa-arrow-right"></i></button>
 					</form>
 					<!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a>
 					<a class="btn btn-info"  href="{% url 'pdf_download' %}">Download Invoice</a> -->
-					</div>
 				</div>
 			</div>
 		</div>
