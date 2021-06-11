@@ -56,10 +56,29 @@
 			body{
 				background-size: 300%;
 			}
+			.col-xs {
+				height: 100%;
+				margin-top: 20%;
+				margin-bottom: 10%;
+			}
+			.pl {
+				margin-left: 0%;
+				margin-top: 2%;
+			}
+
 		}
 		@media only screen and (max-width:1000px) {
 			body{
 				background-size: 300%;
+			}
+			.col-xs {
+				height: 100%;
+				margin-top: 20%;
+				margin-bottom: 10%;
+			}
+			.pl {
+				margin-left: 0%;
+				margin-top: 2%;
 			}
 		}
 	</style>
@@ -68,7 +87,7 @@
 <body  >
 	<div class="container">
 		<div class="row">
-			<div class="col-xs" style="margin-left: 0%;margin-top: 5%;margin-bottom: 5%; height: 100%;">
+			<div class="col-xs" style="margin-left: 0%;margin-top: 5%;margin-bottom: 5%;">
 				<h1 class="card text-center" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 88, 37));">HKRS</h1>
 				<div class="card text-center">
 					<h3>Create Invoices (HKRS NET Communications)</h3>
@@ -101,7 +120,7 @@
 							<option value="6">6</option>
 							<option value="7">7</option>
 						</select>
-						<label style="margin-left: 5%;">Payment Mode</label>
+						<label style="margin-left: 5%;"  id="pl">Payment Mode</label>
 						<select name="" id="">
 							<option value="Cash">Cash</option>
 							<option value="Online">Online</option>
