@@ -1,36 +1,44 @@
 const postBtn = document.getElementById('ci-button');
 // const getBtn = document.getElementById('ci-button');
 
-const sendHttpRequest = (method,url) => {
+const sendHttpRequest = (method,url,data) => {
     const promise = new Promise((resolve,reject) => {
         const xhr = new XMLHttpRequest();
         xhr.open(method,url);
+        xhr.setRequestHeader('Content-Type','application/json');
         xhr.onload = () =>{
-            resolve(JSON.parse(xhr.response))
+            if (xhr.status==201){
+                resolve(JSON.parse(xhr.response))
+            }
+            else{
+                reject(xhr.response)
+            }
         }
-        xhr.send();
+        xhr.send(JSON.stringify(data));
     });
     return promise;
 }
 
 const sendData = () => {
-    sendHttpRequest('POST','https://hkrsinvgen.herokuapp.com/api/post/'
-    // ,{
-    //     Billing_name : document.querySelectorAll("#cn"),
-    //     Billing_Address : document.querySelectorAll("#ca"),
-    //     Plan_Description : document.querySelectorAll("#pd"),
-    //     Plan_Cost : document.querySelectorAll("#pc"),
-    //     Quantity : document.querySelectorAll("#q"),
-    //     Invoice_date : document.querySelectorAll("#ind"),
-    //     Due_date: document.querySelectorAll("#dd"),
-    //     Payment_mode : document.querySelectorAll("#pm"),
-    //     Paid_date : document.querySelectorAll("#pda"),
-    //     Paid_amt : document.querySelectorAll("#pa"),
-    // }
-    ).then(responseData => { 
+    sendHttpRequest('POST','https://hkrsinvgen.herokuapp.com/api/post/',{
+        Billing_name : document.querySelector("#cn").value,
+        Billing_Address : document.querySelector("#ca").value,
+        Plan_Description : document.querySelector("#pd").value,
+        Plan_Cost : document.querySelector("#pc").value,
+        Quantity : document.querySelector('#q').value,
+        Invoice_date : document.querySelector("#ind").value,
+        Due_date: document.querySelector("#dd").value,
+        Payment_mode : document.querySelector("#pm").value,
+        Paid_date : document.querySelector("#pda").value,
+        Paid_amt : document.querySelector("#pa").value,
+    })
+    .then(responseData => { 
         console.log(responseData);
-        console.log(document.querySelectorAll("#pm"));
-    });
+    })
+    .catch(err =>{
+        console.log(err);
+    })
+    ;
 };
 
 // const getData = () => {

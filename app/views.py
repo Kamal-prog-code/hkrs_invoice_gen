@@ -8,6 +8,7 @@ from xhtml2pdf import pisa
 from rest_framework.views import APIView
 from .serializers import *
 from rest_framework import status
+from datetime import datetime
 from rest_framework.response import Response
 
 def render_to_pdf(template_src, context_dict={}):
@@ -52,6 +53,9 @@ class Formdata(APIView):
 	def post(self, request):
 		try:
 			data = request.data
+			data["Invoice_date"] = datetime.strptime(data["Invoice_date"],"%d-%m-%Y")
+			data["Due_date"] = datetime.strptime(data["Due_date"],"%d-%m-%Y")
+			data["Paid_date"] = datetime.strptime(data["Paid_date"],"%d-%m-%Y")
 			serializer = FormDSerializer(data=data)
 			f_objs =FormD.objects.all()
 			if serializer.is_valid(raise_exception=True):
