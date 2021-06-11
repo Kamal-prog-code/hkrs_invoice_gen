@@ -91,27 +91,27 @@
 				<h1 class="card text-center" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 88, 37));">HKRS</h1>
 				<div class="card text-center">
 					<h3>Create Invoices (HKRS NET Communications)</h3>
-					<form name="Kform" class="text-start">
+					<form name="Kform" class="text-start" method="POST">
 						<label>Customer Name</label>
-						<input type="text" placeholder="Enter your Customer name"><br>
+						<input type="text" placeholder="Enter your Customer name" id="cn"><br>
 						<label>Address</label>
-						<input type="text" placeholder="Enter Address"><br>
+						<input type="text" placeholder="Enter Address" id="ca"><br>
 						<label>Plan Description</label>
-						<input type="text" placeholder="Select your Plan"><br>
+						<input type="text" placeholder="Select your Plan" id="pd"><br>
 						<label>Invoice Date</label>
-						<input type="date" id="" name="">
+						<input type="date" id="ind" >
 						<label>Due Date</label>
-						<input type="date" id="" name="">
+						<input type="date" id="dd">
 						<!-- <input type="text" placeholder="Enter the Cost"><br> -->
 						<label for="cost">Plan Cost:</label>
-						<select name="" id="">
+						<select  id="pc">
 							<option value="499">Rs.499/-</option>
 							<option value="599">Rs.599/-</option>
 							<option value="1299">Rs.1299/-</option>
 							<option value="699">Rs.699/-</option>
 						</select>
 						<label for="quantity" style="margin-left: 5%;">Quantity</label>
-						<select name="" id="">
+						<select  id="q">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -121,23 +121,23 @@
 							<option value="7">7</option>
 						</select>
 						<label style="margin-left: 5%;"  id="pl">Payment Mode</label>
-						<select name="" id="">
+						<select  id="pm">
 							<option value="Cash">Cash</option>
 							<option value="Online">Online</option>
 						</select><br><br>
 						<label>Paid Date</label>
-						<input type="date" id="" name="">
+						<input type="date" id="pda" >
 						<label>Paid Amount</label>
-						<input type="text" placeholder="Total Paid Amt"><br>
-						<button>Create Invoice<i class="fas fa-arrow-right"></i></button>
+						<input type="text" placeholder="Total Paid Amt" id="pa"><br>
 					</form>
+					<button id ="ci-button">Create Invoice<i class="fas fa-arrow-right"></i></button>
 					<!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a>
 					<a class="btn btn-info"  href="{% url 'pdf_download' %}">Download Invoice</a> -->
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<script src="{% static 'js/xhr.js'%}"></script>
 
 </body>
 </html>
