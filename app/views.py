@@ -20,19 +20,37 @@ def render_to_pdf(template_src, context_dict={}):
 	return None
 
 class Formdata(APIView):
+	"""
+	Request Data
+	{
+		"Billing_name" : "",
+		"Billing_Address" : "",
+		"Plan_Description" : "",
+		"Plan_Cost" : "",
+		"Total" : "",
+		"Quantity" : "",
+		"Invoice_date" : "",
+		"Due_date": "",
+		"Payment_mode" : "",
+		"Paid_date" : "",
+		"Paid_amt" : "",
+	}
+	"""
 	def post(self, request):
 		try:
 			data = request.data
 			serializer = FormDSerializer(data=data)
-			b_objs =BillNo.objects.all()
-			if b_objs.count():
-				b_obj=b_objs.first()
-				bn=b_obj.Bill_no
-				b_obj.delete()
-				BillNo.objects.create(Bill_no=int(bn)+1)
-			else:	
-				BillNo.objects.create(Bill_no=155110)
+			f_objs =FormD.objects.all()
 			if serializer.is_valid(raise_exception=True):
+				if f_objs.count():
+					f_obj=f_objs.first()
+					bn=f_obj.Bill_no
+					iid = str(f_obj.Invoice_id)[4:]
+					rn=str(f_obj.Ref_no)[4:]
+					f_obj.delete()
+					serializer.save(Invoice_id="inv_"+str(int(iid)+1),Bill_no=int(bn)+1,Ref_no="Ref_"+str(int(rn)+1))
+				else:	
+					serializer.save(Invoice_id="inv_1",Bill_no=155110,Ref_no="Ref_1")
 				return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 		except Exception as e:
 			return Response({'message':str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
