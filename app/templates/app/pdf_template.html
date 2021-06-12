@@ -15,14 +15,13 @@
                 font-size: 20px;
                 font-weight: 100;
                 /* text-align: center; */
-				background-image: url(/Static/imgs/header.png);
             }
 			.in {
 				color: rgb(68, 128, 240);
 				font-size: 30px;
 				font-weight: bold;
 			}
-			p{
+			pre{
 				margin-top: 2.5em;
 				font-weight:50;
 			}
@@ -49,15 +48,18 @@
 		<header>SIGNUM DIGITAL NETWORKS PVT LTD&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="in">INVOICE</span></header>
 		<div>
 			<p><pre>Signum Digital Networks (Pvt) Limited. D No: 54-16-7/4B, 
-Plot No 7, Road Number 1, Central Excise Colony, 
+Plot No 7, Road Number 1, Central Excise Colony,                           
 Vijayawada Krishna AP 520007 IN
 GSTIN : 37AASCS5193H1ZN
 HSN Code : 9984</pre></p>
 			<i>INVOICE ID : # {{formdata.Invoice_id}}</i><hr>
+			Invoice Date : {{formdata.Invoice_date}}<br><br>
+			Due Date : {{formdata.Due_date}}<br>
+			<hr>
 			<span>
 				<b style="font-size: larger;">Bill To</b><br>
-				{{formdata.Billing_name}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Invoice Date : {{formdata.Invoice_date}}<br>
-				{{formdata.Billing_Address}}, Vijayawada, India-520015&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Due Date : {{formdata.Due_date}}<br>
+				{{formdata.Billing_name}}<br>
+				{{formdata.Billing_Address}}, Vijayawada, India-520015<br>
 				<u>Registered Mobile</u> : {{formdata.Mobile_number}}
 			</span>
 		</div>
@@ -140,6 +142,6 @@ HSN Code : 9984</pre></p>
 		<hr>
 		<p class="tt">***This is computer generated invoice. No signature required***<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThank you for your prompt payment.</p>
 
-		<div style="margin-top: 20em;">(c) - page 1 of 1</div>
+		<div style="margin-top: 7em;">(c) - page 1 of 1</div>
 	</body>
 </html>
