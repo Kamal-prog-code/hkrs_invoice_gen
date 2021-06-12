@@ -12,13 +12,16 @@
                 font-size: 14px;
             }
             header {
-                font-size: 20px;
-                font-weight: 100;
+                font-size: 30px;
+				font-style: italic;
+				font-weight: bold;
+                font-weight: 200;
+				color: rgb(255, 106, 20);
                 /* text-align: center; */
             }
 			.in {
 				color: rgb(68, 128, 240);
-				font-size: 30px;
+				font-size: 20px;
 				font-weight: bold;
 			}
 			pre{
@@ -45,7 +48,7 @@
 		
 		<!-- <img src="static/imgs/header.png"></img>
 		 -->
-		<header>SIGNUM DIGITAL NETWORKS PVT LTD&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="in">INVOICE</span></header>
+		<header>HKRS FiberX NETWORKS PVT LTD&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="in">INVOICE</span></header>
 		<div>
 			<p><pre>Signum Digital Networks (Pvt) Limited. D No: 54-16-7/4B, 
 Plot No 7, Road Number 1, Central Excise Colony,                           
@@ -54,7 +57,7 @@ GSTIN : 37AASCS5193H1ZN
 HSN Code : 9984</pre></p>
 			<i>INVOICE ID : # {{formdata.Invoice_id}}</i><hr>
 			Invoice Date : {{formdata.Invoice_date}}<br><br>
-			Due Date : {{formdata.Due_date}}<br>
+			Due Date : {{formdata.Due_date}}
 			<hr>
 			<span>
 				<b style="font-size: larger;">Bill To</b><br>
