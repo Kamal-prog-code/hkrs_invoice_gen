@@ -19,19 +19,6 @@ def render_to_pdf(template_src, context_dict={}):
 	if not pdf.err:
 		return HttpResponse(result.getvalue(), content_type='application/pdf')
 	return None
-data = {
-	"company": "Dennnis Ivanov Company",
-	"address": "123 Street name",
-	"city": "Vancouver",
-	"state": "WA",
-	"zipcode": "98663",
-
-
-	"phone": "555-555-2345",
-	"email": "youremail@dennisivy.com",
-	"website": "dennisivy.com",
-	}
-
 
 class Formdata(APIView):
 	"""
@@ -72,28 +59,19 @@ class Formdata(APIView):
 		except Exception as e:
 			return Response({'message':str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 	
-
-#Opens up page as PDF
 class ViewPDF(View):
 	def get(self, request, *args, **kwargs):
-
-		pdf = render_to_pdf('app/pdf_template.html', data)
+		pdf = render_to_pdf('app/pdf_template.html', {'formdata':FormD.objects.first()})
 		return HttpResponse(pdf, content_type='application/pdf')
 
-
-#Automaticly downloads to PDF file
 class DownloadPDF(View):
 	def get(self, request, *args, **kwargs):
-		
-		pdf = render_to_pdf('app/pdf_template.html', data)
-
+		pdf = render_to_pdf('app/pdf_template.html', {'formdata':FormD.objects.first()})
 		response = HttpResponse(pdf, content_type='application/pdf')
-		filename = "Invoice_%s.pdf" %("12341231")
+		filename = "{}.pdf".format(FormD.objects.first().Invoice_id)
 		content = "attachment; filename=%s" %(filename)
 		response['Content-Disposition'] = content
 		return response
-
-
 
 def index(request):
 	context = {}

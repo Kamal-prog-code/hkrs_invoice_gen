@@ -1,84 +1,145 @@
-<head>
-<style>
-    @page {
-        size: a4 portrait;
-        @frame header_frame {           /* Static Frame */
-            -pdf-frame-content: header_content;
-            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
-        }
-        @frame content_frame {          /* Content Frame */
-            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
-        }
-        @frame footer_frame {           /* Another static Frame */
-            -pdf-frame-content: footer_content;
-            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
-        }
-    }
-</style>
-</head>
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/d0d12d717f.js" crossorigin="anonymous"></script>
+		<title>HKRS</title>
+		<style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            header {
+                font-size: 20px;
+                font-weight: 100;
+                /* text-align: center; */
+				background-image: url(/Static/imgs/header.png);
+            }
+			.in {
+				color: rgb(68, 128, 240);
+				font-size: 30px;
+				font-weight: bold;
+			}
+			p{
+				margin-top: 2.5em;
+				font-weight:50;
+			}
+			.tt{
+				margin-left: 12em;
+			}
+			i{
+				font-weight: bold;
+				font-size: x-large;
+			}
+			th {
+				margin-left: 2.45em;
+			}
+			.datat{
+				font-weight:100;
+			}
+        </style>
+	</head>
 
-<body>
-    <!-- Content for Static Frame 'header_frame' -->
-    <div id="header_content">
-    	<h3>HKRS</h3>
-    </div>
+	<body>
+		
+		<!-- <img src="static/imgs/header.png"></img>
+		 -->
+		<header>SIGNUM DIGITAL NETWORKS PVT LTD&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="in">INVOICE</span></header>
+		<div>
+			<p><pre>Signum Digital Networks (Pvt) Limited. D No: 54-16-7/4B, 
+Plot No 7, Road Number 1, Central Excise Colony, 
+Vijayawada Krishna AP 520007 IN
+GSTIN : 37AASCS5193H1ZN
+HSN Code : 9984</pre></p>
+			<i>INVOICE ID : # {{formdata.Invoice_id}}</i><hr>
+			<span>
+				<b style="font-size: larger;">Bill To</b><br>
+				{{formdata.Billing_name}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Invoice Date : {{formdata.Invoice_date}}<br>
+				{{formdata.Billing_Address}}, Vijayawada, India-520015&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Due Date : {{formdata.Due_date}}<br>
+				<u>Registered Mobile</u> : {{formdata.Mobile_number}}
+			</span>
+		</div>
+		<table>
+			    <tr style="background-color:rgb(88, 144, 248);height: 50px;color: white;">
+					<th>
+						Reference
+					</th>
+					<th>
+						Description
+					</th>
+					<th>
+						Quantity
+					</th>
+					<th>
+						Unit Cost
+					</th><th>
+						Total
+					</th>
+				</tr>
+				<tr></tr>
+				<tr>
+					<th class="datat">
+						{{formdata.Ref_no}}
+					</th>
+					<th class="datat">
+						{{formdata.Plan_Description}}
+					</th>
+					<th class="datat">
+						{{formdata.Quantity}}
+					</th>
+					<th class="datat">
+						{{formdata.Plan_Cost}}
+					</th>
+					<th class="datat">
+						{{formdata.Total}}
+					</th>
+				</tr>
+				<!-- <tr style="background-color:rgb(88, 144, 248);height: 50px;color: white;"></tr> -->
+		</table>
+		<div style="background-color:rgb(88, 144, 248);color: white;" class="gt"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGrand Total &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{formdata.Total}}</div>
+		<table>
+			<tr><td style="font-size:large ;"><br>Payments<br></td></tr>
+			<tr style="background-color:rgb(88, 144, 248);height: 50px;color: white;">
+				<th>
+					Bill No
+				</th>
+				<th>
+					Payment Mode
+				</th>
+				<th>
+					Ref No
+				</th>
+				<th>
+					Paid Date
+				</th><th>
+					Paid Amount
+				</th>
+			</tr>
+			<tr></tr>
+			<tr>
+				<th class="datat">
+					{{formdata.Bill_no}}
+				</th>
+				<th class="datat">
+					{{formdata.Payment_mode}}
+				</th>
+				<th class="datat">
+					{{formdata.Ref_no}}
+				</th>
+				<th class="datat">
+					{{formdata.Paid_date}}
+				</th>
+				<th class="datat">
+					{{formdata.Paid_amt}}
+				</th>
+			</tr>
+			<!-- <tr style="background-color:rgb(88, 144, 248);height: 50px;color: white;"></tr> -->
+		</table>
+		<hr>
+		<p class="tt">***This is computer generated invoice. No signature required***<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThank you for your prompt payment.</p>
 
-    <!-- Content for Static Frame 'footer_frame' -->
-    <div id="footer_content">(c) - page <pdf:pagenumber>
-        of <pdf:pagecount>
-    </div>
-
-    <!-- HTML Content -->
-    <table>
-    		<tr>
-    			<td>{{address}}</td>
-    			<td>{{phone}}</td>
-    		</tr>
-    		<tr>
-    			<td>{{city}} {{state}},</td>
-    			<td>{{email}}</td>
-    		</tr>
-    		<tr>
-    			<td>{{zipcode}}</td>
-    			<td>{{website}}</td>
-    		</tr>
-    </table>
-
-    <hr>
-
-    <table>
-    	<tr>
- 
-    		<th>Product</th>
-    		<th>Price</th>
-    		<th>Quantity</th>
-    		<th>Total</th>
-    	</tr>
-    	<tr>
- 
-    		<td>Hosting Plan</td>
-    		<td>$7.99</td>
-    		<td>2</td>
-    		<td>$15.98</td>
-    	</tr>
-    	<tr>
- 
-    		<td>consultation </td>
-    		<td>$225</td>
-    		<td>1</td>
-    		<td>$225</td>
-    	</tr>
-    	<tr>
- 
-    		<td>Service Hours</td>
-    		<td>$189</td>
-    		<td>45.7</td>
-    		<td>$8637.30</td>
-    	</tr>
-    </table>
-
-    <hr>
-
-    <p><strong>Total: $8878.28</strong></p>
-</body>
+		<div style="margin-top: 20em;">(c) - page 1 of 1</div>
+	</body>
 </html>
