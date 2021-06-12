@@ -96,7 +96,7 @@
 				<h1 class="card text-center" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 88, 37));">HKRS</h1>
 				<div class="card text-center">
 					<h3>Create Invoices (HKRS NET Communications)</h3>
-					<form id="Kform" class="text-start" accept="/pdf_view/">
+					<form name="Kform" class="text-start">
 						<label>Customer Name</label>
 						<input type="text" placeholder="Enter your Customer name" id="cn"><br>
 						<label>Address</label>
@@ -135,15 +135,21 @@
 						<label>Paid Amount</label>
 						<input type="text" placeholder="Total Paid Amt" id="pa"><br>
 					</form>
-					<button id ="ci-button" form="Kform" value="Submit">Create Invoice<i class="fas fa-arrow-right"></i></button>
+				
+						<button id ="ci-button" style="align-content: flex-start;justify-content: left;" onclick="visfunc()">Create Invoice<i class="fas fa-arrow-right"></i></button>
+						<br><a class="btn btn-info" id="downpdf" style="width: max-content; height: 45px;visibility: hidden;" href="{% url 'pdf_download' %}">Download Invoice</a>		
 					<!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a>
-					<a class="btn btn-info">Download Invoice</a> -->
+					<a class="btn btn-info"  href="{% url 'pdf_download' %}">Download Invoice</a> -->
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="{% static 'js/xhr.js'%}"></script>
-
+	<script>
+		function visfunc() {
+			document.getElementById("downpdf").style.visibility="visible";
+		}
+	</script>
 </body>
 </html>
 
