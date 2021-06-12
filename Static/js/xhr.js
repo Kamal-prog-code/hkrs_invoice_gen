@@ -31,6 +31,7 @@ const sendData = () => {
         Payment_mode : document.querySelector("#pm").value,
         Paid_date : document.querySelector("#pda").value,
         Paid_amt : document.querySelector("#pa").value,
+        Mobile_number : document.querySelector("#bm").value,
     })
     .then(responseData => { 
         console.log(responseData);
