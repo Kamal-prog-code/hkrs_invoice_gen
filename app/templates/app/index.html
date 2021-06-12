@@ -96,7 +96,7 @@
 				<h1 class="card text-center" style="background: linear-gradient(to right,rgb(240, 206, 206),rgb(255, 88, 37));">HKRS</h1>
 				<div class="card text-center">
 					<h3>Create Invoices (HKRS NET Communications)</h3>
-					<form name="Kform" class="text-start" method="POST">
+					<form id="Kform" class="text-start" accept="/pdf_view/" method="POST">
 						<label>Customer Name</label>
 						<input type="text" placeholder="Enter your Customer name" id="cn"><br>
 						<label>Address</label>
@@ -135,7 +135,7 @@
 						<label>Paid Amount</label>
 						<input type="text" placeholder="Total Paid Amt" id="pa"><br>
 					</form>
-					<button id ="ci-button" onclick="window.location.href='https://hkrsinvgen.herokuapp.com/pdf_view/';">Create Invoice<i class="fas fa-arrow-right"></i></button>
+					<button id ="ci-button" form="Kform" value="Submit">Create Invoice<i class="fas fa-arrow-right"></i></button>
 					<!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a>
 					<a class="btn btn-info">Download Invoice</a> -->
 				</div>
