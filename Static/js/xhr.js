@@ -32,6 +32,8 @@ const sendData = () => {
         Paid_date : document.querySelector("#pda").value,
         Paid_amt : document.querySelector("#pa").value,
         Mobile_number : document.querySelector("#bm").value,
+        Invoice_id : "Invoice_" + num.toString(document.querySelector("#cid").value),
+        Bill_no : document.querySelector("#bn").value
     })
     .then(responseData => { 
         console.log(responseData);
