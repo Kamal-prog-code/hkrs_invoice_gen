@@ -49,10 +49,9 @@ class Formdata(APIView):
 				if f_objs.count():
 					f_obj=f_objs.first()
 					bn=f_obj.Bill_no
-					iid = str(f_obj.Invoice_id)[4:]
-					rn=str(f_obj.Ref_no)[4:]
+					iid = str(f_obj.Invoice_id)[8:]
 					f_obj.delete()
-					serializer.save(Invoice_id="inv_"+str(int(iid)+1),Bill_no=int(bn)+1,Ref_no="Ref_"+str(int(rn)+1),Total=int(data["Quantity"])*int(data["Plan_Cost"]))
+					serializer.save(Invoice_id="Invoice_"+str(int(iid)+1),Bill_no=int(bn)+1,Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=int(data["Quantity"])*int(data["Plan_Cost"]))
 				else:	
 					serializer.save(Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=int(data["Quantity"])*int(data["Plan_Cost"]))
 				return Response(data=serializer.data, status=status.HTTP_201_CREATED)
