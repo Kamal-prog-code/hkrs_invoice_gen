@@ -8,6 +8,7 @@ class FormD(models.Model):
     Plan_Description = models.CharField(max_length=1000, null=True, blank=True)
     Plan_Cost = models.CharField(max_length=100, null=True, blank=True)
     Total = models.CharField(max_length=100, null=True, blank=True)
+    Grand_total = models.CharField(max_length=100, null=True, blank=True)
     Installation = models.CharField(max_length=100, null=True, blank=True)
     Invoice_id = models.CharField(max_length=500,null=True, blank=True)
     Quantity = models.CharField(max_length=100, null=True, blank=True,default=1)
