@@ -29,6 +29,7 @@ class Formdata(APIView):
 		"Plan_Description" : "",
 		"Plan_Cost" : "",
 		"Total" : "",
+		"Installation":"",
 		"Quantity" : "",
 		"Invoice_date" : "",
 		"Due_date": "",

@@ -31,6 +31,7 @@ const sendData = () => {
         Payment_mode : document.querySelector("#pm").value,
         Paid_date : document.querySelector("#pda").value,
         Paid_amt : document.querySelector("#pa").value,
+        Installation: document.querySelector("#ic").value,
         Mobile_number : document.querySelector("#bm").value,
         Invoice_id : "Invoice_" + (document.querySelector("#cid").value).toString(),
         Bill_no : document.querySelector("#bn").value
