@@ -52,9 +52,9 @@ class Formdata(APIView):
 					bn=f_obj.Bill_no
 					iid = str(f_obj.Invoice_id)[8:]
 					f_obj.delete()
-					serializer.save(Invoice_id="Invoice_"+str(int(iid)+1),Bill_no=int(bn)+1,Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=int(data["Quantity"])*int(data["Plan_Cost"]))
+					serializer.save(Invoice_id="Invoice_"+str(int(iid)+1),Bill_no=int(bn)+1,Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=(int(data["Quantity"])*int(data["Plan_Cost"]))+ 320 + int(data["Installation"]))
 				else:	
-					serializer.save(Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=int(data["Quantity"])*int(data["Plan_Cost"]))
+					serializer.save(Ref_no="Ref_"+str(uuid.uuid4())[:10],Total=(int(data["Quantity"])*int(data["Plan_Cost"])) + 320 + int(data["Installation"]))
 				return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 		except Exception as e:
 			return Response({'message':str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
