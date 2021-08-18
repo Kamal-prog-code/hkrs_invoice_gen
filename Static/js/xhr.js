@@ -20,7 +20,7 @@ const sendHttpRequest = (method,url,data) => {
 }
 
 const sendData = () => {
-    sendHttpRequest('POST','https://hkrsinvgen.herokuapp.com/api/post/',{
+    sendHttpRequest('POST','https://hkrs-inv.herokuapp.com/api/post/',{
         Billing_name : document.querySelector("#cn").value,
         Billing_Address : document.querySelector("#ca").value,
         Plan_Description : document.querySelector("#pd").value,
